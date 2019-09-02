@@ -70,8 +70,8 @@ class SecondViewController: UIViewController {
         
         title = "Авторизация"
         errorLabel.text = ""
-//        emailTextField.text = "aaa@rt"
-//        passwordTextField.text = "aaa23BD3"
+        emailTextField.text = "aaa@rt"
+        passwordTextField.text = "aaa23BD3"
         
         let backButton = UIBarButtonItem()
         backButton.title = ""
@@ -83,6 +83,8 @@ class SecondViewController: UIViewController {
         passwordTextField.borderStyle = .none
         passwordTextField.underlined()
         passwordTextField.isSecureTextEntry = true
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         
         self.hideKeyboard()
         
@@ -157,4 +159,9 @@ extension String {
     }
 }
 
-
+extension SecondViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
