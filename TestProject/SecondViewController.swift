@@ -70,8 +70,8 @@ class SecondViewController: UIViewController {
         
         title = "Авторизация"
         errorLabel.text = ""
-        emailTextField.text = "aaa@rt"
-        passwordTextField.text = "aaa23BD3"
+//        emailTextField.text = "aaa@rt"
+//        passwordTextField.text = "aaa23BD3"
         
         let backButton = UIBarButtonItem()
         backButton.title = ""
