@@ -15,6 +15,7 @@
 		57D8CEDE231D130900C231B3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8CEDD231D130900C231B3 /* SecondViewController.swift */; };
 		57D8CEE0231D130C00C231B3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8CEDF231D130C00C231B3 /* Model.swift */; };
 		57D8CEE2231D131000C231B3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8CEE1231D131000C231B3 /* FirstViewController.swift */; };
+		57D8CEE7231D161B00C231B3 /* SFUIText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 57D8CEE6231D161800C231B3 /* SFUIText-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		57D8CEDD231D130900C231B3 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = /Users/romankomarov/Projects/Swift/TestProject/TestProject/SecondViewController.swift; sourceTree = "<absolute>"; };
 		57D8CEDF231D130C00C231B3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Model.swift; path = /Users/romankomarov/Projects/Swift/TestProject/TestProject/Model.swift; sourceTree = "<absolute>"; };
 		57D8CEE1231D131000C231B3 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = /Users/romankomarov/Projects/Swift/TestProject/TestProject/FirstViewController.swift; sourceTree = "<absolute>"; };
+		57D8CEE6231D161800C231B3 /* SFUIText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFUIText-Regular.otf"; path = "/Users/romankomarov/Projects/Swift/TestProject/TestProject/SFUIText-Regular.otf"; sourceTree = "<absolute>"; };
+		57D8CEE8231D17A100C231B3 /* SFUIText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFUIText-Medium.otf"; path = "/Users/romankomarov/Projects/Swift/TestProject/TestProject/SFUIText-Medium.otf"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 				57D8CEE1231D131000C231B3 /* FirstViewController.swift */,
 				57D8CECE231D10EB00C231B3 /* Assets.xcassets */,
 				57D8CED0231D10EB00C231B3 /* LaunchScreen.storyboard */,
+				57D8CEE8231D17A100C231B3 /* SFUIText-Medium.otf */,
+				57D8CEE6231D161800C231B3 /* SFUIText-Regular.otf */,
 				57D8CED3231D10EB00C231B3 /* Info.plist */,
 			);
 			path = TestProject;
@@ -143,6 +148,7 @@
 			files = (
 				57D8CED2231D10EB00C231B3 /* LaunchScreen.storyboard in Resources */,
 				57D8CECF231D10EB00C231B3 /* Assets.xcassets in Resources */,
+				57D8CEE7231D161B00C231B3 /* SFUIText-Regular.otf in Resources */,
 				57D8CECD231D10EA00C231B3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

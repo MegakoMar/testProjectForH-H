@@ -2,13 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/romankomarov/Projects/Swift/TestProject/TestProject/FirstViewController.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/romankomarov/Projects/Swift/TestProject/TestProject/Model.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/romankomarov/Projects/Swift/TestProject/TestProject/SecondViewController.swift">
+      location = "group:/Users/romankomarov/Projects/Swift/TestProject/TestProject/SFUIText-Medium.otf">
    </FileRef>
    <FileRef
       location = "self:">

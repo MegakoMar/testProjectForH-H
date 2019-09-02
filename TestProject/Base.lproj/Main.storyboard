@@ -9,11 +9,19 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFUIText-Medium.otf">
+            <string>SFUIText-Medium</string>
+        </array>
+        <array key="SFUIText-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Авторизация-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="firstVC" id="BYZ-38-t0r" customClass="FirstViewController" customModule="testProjectForHH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="firstVC" id="BYZ-38-t0r" customClass="FirstViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,7 +33,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="147" id="CeC-Lv-fya"/>
                                     <constraint firstAttribute="height" constant="44" id="r6y-0W-7hV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI  Text" pointSize="15"/>
                                 <state key="normal" title="Авторизация">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -53,7 +61,7 @@
         <!--Second View Controller-->
         <scene sceneID="Hsb-da-qia">
             <objects>
-                <viewController storyboardIdentifier="secondVC" id="qGp-4c-PsA" customClass="SecondViewController" customModule="testProjectForHH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="secondVC" id="qGp-4c-PsA" customClass="SecondViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F9V-r3-IIx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +75,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="244" id="CGB-Ya-F4S"/>
                                             <constraint firstAttribute="height" constant="17" id="exO-Yj-jvo"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI  Text" pointSize="13"/>
                                         <color key="textColor" red="0.47450980392156861" green="0.47450980392156861" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -77,7 +85,7 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="enU-FN-I0v"/>
                                             <constraint firstAttribute="height" constant="17" id="gzn-yh-UVT"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI  Text" pointSize="13"/>
                                         <color key="textColor" red="0.47450980392156861" green="0.47450980392156861" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -87,7 +95,7 @@
                                             <constraint firstAttribute="height" constant="27" id="rrI-0G-Afp"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI  Text" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1e4-uv-RMz">
@@ -96,12 +104,12 @@
                                             <constraint firstAttribute="height" constant="27" id="tq7-u1-I7c"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI  Text" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="У меня еще нет аккаунта. Создать" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmk-Hp-z7H">
-                                        <rect key="frame" x="14.5" y="356" width="291" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <rect key="frame" x="33" y="356" width="254.5" height="18"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI  Text" pointSize="15"/>
                                         <color key="textColor" red="0.2196078431372549" green="0.52156862745098043" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -112,6 +120,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="147" id="tnS-zJ-ahm"/>
                                             <constraint firstAttribute="height" constant="44" id="xHZ-Tb-I8z"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI  Text" pointSize="15"/>
                                         <state key="normal" title="Войти">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -126,16 +135,16 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="113" id="msf-xa-xXg"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="zgl-wM-7Fb"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI  Text" pointSize="12"/>
                                         <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1W-Da-jXX">
-                                        <rect key="frame" x="10" y="397" width="300" height="21.5"/>
+                                        <rect key="frame" x="10" y="394" width="300" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="46A-YB-MjH"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI  Text" pointSize="14"/>
                                         <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -153,7 +162,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="gsX-pL-ISt" firstAttribute="top" secondItem="1e4-uv-RMz" secondAttribute="bottom" constant="10" id="2WX-Ns-u6J"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="f4z-Pw-wQc" secondAttribute="trailing" symbolic="YES" id="6IE-XD-FmC"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="f4z-Pw-wQc" secondAttribute="trailing" constant="20" symbolic="YES" id="6IE-XD-FmC"/>
                                     <constraint firstItem="w1W-Da-jXX" firstAttribute="top" secondItem="Hmk-Hp-z7H" secondAttribute="bottom" constant="20" id="BC7-DS-CAn"/>
                                     <constraint firstItem="Hmk-Hp-z7H" firstAttribute="top" secondItem="wPj-62-iX5" secondAttribute="bottom" constant="21" id="BFY-Zp-16K"/>
                                     <constraint firstItem="0KY-3l-61G" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mc7-7L-mqU" secondAttribute="leading" constant="20" symbolic="YES" id="EIh-WF-WnB"/>
