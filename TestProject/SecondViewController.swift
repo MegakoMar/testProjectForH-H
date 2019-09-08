@@ -17,6 +17,7 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var forgotOfPassword: UIButton!
     @IBAction func loginButtonAction(_ sender: UIButton) {
         guard let email = emailTextField.text else {
             return
@@ -70,8 +71,8 @@ class SecondViewController: UIViewController {
         
         title = "Авторизация"
         errorLabel.text = ""
-//        emailTextField.text = "aaa@rt"
-//        passwordTextField.text = "aaa23BD3"
+        emailTextField.text = "aaa@rt"
+        passwordTextField.text = "aaa23BD3"
         
         let backButton = UIBarButtonItem()
         backButton.title = ""
@@ -82,9 +83,12 @@ class SecondViewController: UIViewController {
         emailTextField.underlined()
         passwordTextField.borderStyle = .none
         passwordTextField.underlined()
-        passwordTextField.isSecureTextEntry = true
+//        passwordTextField.isSecureTextEntry = true
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        forgotOfPassword.layer.borderWidth = 1
+        forgotOfPassword.layer.borderColor = (UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1.0)).cgColor
+        forgotOfPassword.layer.cornerRadius = 4
         
         self.hideKeyboard()
         
