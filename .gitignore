@@ -1,2 +1,11 @@
 .DS_Store
 
+# Xcode
+build/
+*.pbxuser
+xcuserdata
+*.xccheckout
+DerivedData
+*.ipa
+*.xcuserstate
+

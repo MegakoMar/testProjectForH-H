@@ -19,6 +19,13 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var forgotOfPassword: UIButton!
+    
+    private var temp = Int()
+    private var city = String()
+    private var date = Date()
+    private let appServerClient = AppServerClient()
+    private let disposeBag = DisposeBag()
+    
     @IBAction func loginButtonAction(_ sender: UIButton) {
         guard let email = emailTextField.text else {
             return
@@ -29,19 +36,13 @@ class SecondViewController: UIViewController {
         
         if email.isValidEmail() && password.isValidPassword() {
             errorLabel.text = ""
-            getWeather()
+            
+            let alertController = UIAlertController(title: "Погода", message: "На \(self.date) в городе \(self.city) температура \(self.temp) C", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Закрыть", style: .cancel))
+            self.present(alertController, animated: true)
         } else {
             errorLabel.text = "Введен неверный Email или Пароль"
         }
-    }
-    
-    private var temp = Int()
-    private var city = String()
-    private var date = Date()
-    
-    enum GetWeatherFailureReason: Int, Error {
-        case unAuthorized = 401
-        case notFound = 404
     }
     
     override func viewDidLoad() {
@@ -49,8 +50,8 @@ class SecondViewController: UIViewController {
         
         title = "Авторизация"
         errorLabel.text = ""
-        emailTextField.text = "aaa@rt"
-        passwordTextField.text = "aaa23BD3"
+//        emailTextField.text = "aaa@rt"
+//        passwordTextField.text = "aaa23BD3"
         
         let backButton = UIBarButtonItem()
         backButton.title = ""
@@ -72,6 +73,17 @@ class SecondViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        appServerClient
+            .getWeather()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext:{weatherResponse in
+//                print("weatherResponse \(weatherResponse)")
+                self.temp = Int(weatherResponse.main.temp - 273)
+                self.city = weatherResponse.name
+                self.date = Date(timeIntervalSince1970: TimeInterval(weatherResponse.dt))
+            }, onError: {error in print("error\(error)")})
+            .disposed(by: disposeBag)
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -85,51 +97,6 @@ class SecondViewController: UIViewController {
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
-        }
-    }
-    
-    func getWeather() -> Observable<CurrentWeather> {
-        return Observable.create { observer -> Disposable in
-            AF.request("http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&APPID=ec2f966be112bd5e75ae23878e7457da")
-            .validate()
-            .responseJSON { (response) in
-                switch response.result {
-                case .success:
-                    guard let data = response.data else {
-                        observer.onError(response.error ?? GetWeatherFailureReason.notFound)
-                        return
-                    }
-                    do {
-                        let decoder = JSONDecoder()
-                        let weatherResponse = try decoder.decode(CurrentWeather.self, from: data)
-                        observer.onNext(weatherResponse)
-                        
-                        self.temp = Int(weatherResponse.main.temp - 273)
-                        self.city = weatherResponse.name
-                        self.date = Date(timeIntervalSince1970: TimeInterval(weatherResponse.dt))
-                        //                    print("self.temp \(self.temp)")
-                        //                    print("self.city \(self.city)")
-                        //                    print("self.date \(self.date)")
-                        
-                        let alertController = UIAlertController(title: "Погода", message: "На \(self.date) в городе \(self.city) температура \(self.temp) C", preferredStyle: .alert)
-                        alertController.addAction(UIAlertAction(title: "Закрыть", style: .cancel))
-                        self.present(alertController, animated: true)
-                        
-                    }
-                    catch let error {
-                        observer.onError(error)
-                        print("error\(error)")
-                    }
-                case .failure(let error):
-                    if let statusCode = response.response?.statusCode,
-                        let reason = GetWeatherFailureReason(rawValue: statusCode)
-                    {
-                        observer.onError(reason)
-                    }
-                    observer.onError(error)
-                }
-            }
-            return Disposables.create()
         }
     }
     

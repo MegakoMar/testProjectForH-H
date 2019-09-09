@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5760DE0F23268E940060BE0A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5760DE0E23268E940060BE0A /* RxSwift.framework */; };
+		5760DE112326B8550060BE0A /* AppServerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5760DE102326B8550060BE0A /* AppServerClient.swift */; };
 		57D8CEC8231D10EA00C231B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8CEC7231D10EA00C231B3 /* AppDelegate.swift */; };
 		57D8CECD231D10EA00C231B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57D8CECB231D10EA00C231B3 /* Main.storyboard */; };
 		57D8CECF231D10EB00C231B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57D8CECE231D10EB00C231B3 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		5760DE0E23268E940060BE0A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		5760DE102326B8550060BE0A /* AppServerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServerClient.swift; sourceTree = "<group>"; };
 		57D8CEC4231D10EA00C231B3 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D8CEC7231D10EA00C231B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57D8CECC231D10EA00C231B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				57D8CEC7231D10EA00C231B3 /* AppDelegate.swift */,
 				57D8CECB231D10EA00C231B3 /* Main.storyboard */,
 				57D8CEDD231D130900C231B3 /* SecondViewController.swift */,
+				5760DE102326B8550060BE0A /* AppServerClient.swift */,
 				57D8CEDF231D130C00C231B3 /* Model.swift */,
 				57D8CEE1231D131000C231B3 /* FirstViewController.swift */,
 				57D8CECE231D10EB00C231B3 /* Assets.xcassets */,
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57D8CEE0231D130C00C231B3 /* Model.swift in Sources */,
+				5760DE112326B8550060BE0A /* AppServerClient.swift in Sources */,
 				57D8CEDE231D130900C231B3 /* SecondViewController.swift in Sources */,
 				57D8CEC8231D10EA00C231B3 /* AppDelegate.swift in Sources */,
 				57D8CEE2231D131000C231B3 /* FirstViewController.swift in Sources */,
