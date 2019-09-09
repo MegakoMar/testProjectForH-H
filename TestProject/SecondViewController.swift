@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import RxSwift
 
 class SecondViewController: UIViewController {
 
@@ -28,35 +29,7 @@ class SecondViewController: UIViewController {
         
         if email.isValidEmail() && password.isValidPassword() {
             errorLabel.text = ""
-            
-            AF.request("http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&APPID=ec2f966be112bd5e75ae23878e7457da").responseJSON { (response) in
-                guard response.result.isSuccess else {
-                    print("Ошибка при запросе данных\(String(describing: response.result.error))")
-                    return
-                }
-                
-                guard let data = response.data else {
-                    return
-                }
-                do {
-                    let decoder = JSONDecoder()
-                    let weatherResponse = try decoder.decode(CurrentWeather.self, from: data)
-                    self.temp = Int(weatherResponse.main.temp - 273)
-                    self.city = weatherResponse.name
-                    self.date = Date(timeIntervalSince1970: TimeInterval(weatherResponse.dt))
-                    print("self.temp \(self.temp)")
-                    print("self.city \(self.city)")
-                    print("self.date \(self.date)")
-                    
-                    let alertController = UIAlertController(title: "Погода", message: "На \(self.date) в городе \(self.city) температура \(self.temp) C", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "Закрыть", style: .cancel))
-                    self.present(alertController, animated: true)
-                    
-                }
-                catch let error {
-                    print("error\(error)")
-                }
-            }
+            getWeather()
         } else {
             errorLabel.text = "Введен неверный Email или Пароль"
         }
@@ -65,6 +38,11 @@ class SecondViewController: UIViewController {
     private var temp = Int()
     private var city = String()
     private var date = Date()
+    
+    enum GetWeatherFailureReason: Int, Error {
+        case unAuthorized = 401
+        case notFound = 404
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,9 +88,51 @@ class SecondViewController: UIViewController {
         }
     }
     
-    func weatherParsing() {
-        
+    func getWeather() -> Observable<CurrentWeather> {
+        return Observable.create { observer -> Disposable in
+            AF.request("http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&APPID=ec2f966be112bd5e75ae23878e7457da")
+            .validate()
+            .responseJSON { (response) in
+                switch response.result {
+                case .success:
+                    guard let data = response.data else {
+                        observer.onError(response.error ?? GetWeatherFailureReason.notFound)
+                        return
+                    }
+                    do {
+                        let decoder = JSONDecoder()
+                        let weatherResponse = try decoder.decode(CurrentWeather.self, from: data)
+                        observer.onNext(weatherResponse)
+                        
+                        self.temp = Int(weatherResponse.main.temp - 273)
+                        self.city = weatherResponse.name
+                        self.date = Date(timeIntervalSince1970: TimeInterval(weatherResponse.dt))
+                        //                    print("self.temp \(self.temp)")
+                        //                    print("self.city \(self.city)")
+                        //                    print("self.date \(self.date)")
+                        
+                        let alertController = UIAlertController(title: "Погода", message: "На \(self.date) в городе \(self.city) температура \(self.temp) C", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Закрыть", style: .cancel))
+                        self.present(alertController, animated: true)
+                        
+                    }
+                    catch let error {
+                        observer.onError(error)
+                        print("error\(error)")
+                    }
+                case .failure(let error):
+                    if let statusCode = response.response?.statusCode,
+                        let reason = GetWeatherFailureReason(rawValue: statusCode)
+                    {
+                        observer.onError(reason)
+                    }
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
     }
+    
 }
 
 //MARK: - extension UITextField

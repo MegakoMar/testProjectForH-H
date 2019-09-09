@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5760DE0F23268E940060BE0A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5760DE0E23268E940060BE0A /* RxSwift.framework */; };
 		57D8CEC8231D10EA00C231B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8CEC7231D10EA00C231B3 /* AppDelegate.swift */; };
 		57D8CECD231D10EA00C231B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57D8CECB231D10EA00C231B3 /* Main.storyboard */; };
 		57D8CECF231D10EB00C231B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57D8CECE231D10EB00C231B3 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5760DE0E23268E940060BE0A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		57D8CEC4231D10EA00C231B3 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D8CEC7231D10EA00C231B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57D8CECC231D10EA00C231B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5760DE0F23268E940060BE0A /* RxSwift.framework in Frameworks */,
 				57D8CEDB231D11F100C231B3 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +85,7 @@
 		57D8CED9231D11F100C231B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5760DE0E23268E940060BE0A /* RxSwift.framework */,
 				57D8CEDA231D11F100C231B3 /* Alamofire.framework */,
 			);
 			name = Frameworks;
@@ -165,6 +169,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 			);
 			outputFileListPaths = (
 			);
